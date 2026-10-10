@@ -1,0 +1,23 @@
+<?php
+$fact=1;
+$num = 5;
+if ($num <0){
+    $fast=$num*$i;
+}
+echo"le factoriel du nombre".
+$num."est:".fast;
+else if ($num==0){
+    $fact=1;
+    echo"le factoriel du nombre ".
+    $num."est:.$fact;
+    {
+}
+$fact = 1;
+
+// Boucle pour calculer le produit
+for ($i = $nombre; $i >= 1; $i--) {
+    $factorial = $factorial * $i;
+}else {echo"le factoriel de ce nombre ". $num."n'rxiste pas";
+}
+
+?>

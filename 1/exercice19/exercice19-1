@@ -1,0 +1,13 @@
+<?php
+
+$A = 48;
+$B = 18;
+
+while ($B != 0) {
+    $R = $A % $B;
+    $A = $B;
+    $B = $R;
+}
+echo "Le PGCD est : " . $A;
+
+?>$      

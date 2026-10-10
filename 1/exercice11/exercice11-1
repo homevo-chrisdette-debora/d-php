@@ -1,0 +1,4 @@
+<?php
+$computer=0;
+
+$non=readline("veuillez entrez un nom");
