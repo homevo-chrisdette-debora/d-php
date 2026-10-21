@@ -1,0 +1,31 @@
+<?php
+$message="";
+if (isset($_FILES['capture']['error']) && $_FILES['capture']['error'] ==0) {
+
+  if (isset($_FILES['capture']['esize']) && $_FILES['capture']['size']<2000000) {
+    }
+    $fileInfo = pathinfo($_FILES['capture-ecran']['name']);
+    $extension = strtolower($fileInfo['extension'] ?? '');
+    $allowedExtensions = ['png', 'jpg', 'jpeg', 'gif'];
+    if (!in_array($extension, $allowedExtensions)) {
+        echo "L'envoi n'a pas pu être effectué, l'extension " . htmlspecialchars($extension) . " n'est pas autorisée";
+        return;
+    }
+
+    $path = __DIR__ . '/telechargement/';
+    if (!is_dir($path)) {
+        if (!mkdir($path, 0755, true)) {
+            echo "L'envoi n'a pas pu être effectué, le dossier uploads n'a pas pu être créé.";
+            return;
+        }
+    }
+    $nomStocke = uniqid('capture_', true) . '.' . $extension;
+    if (!move_uploaded_file($_FILES['capture-ecran']['tmp_name'], $path . $nomStocke)) {
+        echo "L'envoi n'a pas pu être effectué, le fichier n'a pas pu être enregistré.";
+        return;
+    }
+
+    $nomOriginal = basename($_FILES['capture-ecran']['name']);
+}
+
+?>
